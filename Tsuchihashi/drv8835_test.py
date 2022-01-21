@@ -43,6 +43,21 @@ def turn_left():                   #左回転
     GPIO.output(27,GPIO.HIGH)
     Bpwm.ChamgeDutyCycle(75)
 
+def stopping():
+    i = 0
+    while(75-i >= 0):
+        Apwm.start(0)                  #右車輪
+        GPIO.output(4,GPIO.HIGH)
+        Apwm.ChangeDutyCycle(75-i)
+        Bpwm.start(0)                  #左車輪
+        GPIO.output(27,GPIO.HIGH)
+        Bpwm.ChamgeDutyCycle(75-i)
+        time.sleep(0.5)
+        i = i - 5
+    else:
+        Apwm.stop()
+        Bpwm.stop()
+
 while(1):
     act=input("処理を入力>>>")
     if act=="f":
@@ -55,8 +70,7 @@ while(1):
                 print(f'{sec}{"秒前進します"}')
                 forward()
                 time.sleep(sec)
-                Apwm.stop()
-                Bpwm.stop()
+                stopping()
                 break
     elif act=="b":
         print("back")
@@ -68,8 +82,7 @@ while(1):
                 print(f'{sec}{"秒後進します"}')
                 back()
                 time.sleep(sec)
-                Apwm.stop()
-                Bpwm.stop()
+                stopping()
                 break
     elif act=="r":
         print("turn right")
@@ -81,8 +94,7 @@ while(1):
                 print(f'{sec}{"秒右回転します"}')
                 turn_right()
                 time.sleep(sec)
-                Apwm.stop()
-                Bpwm.stop()
+                stopping()
                 break
     elif act=="l":
         print("turn left")
@@ -94,8 +106,7 @@ while(1):
                 print(f'{sec}{"秒左回転します"}')
                 turn_left()
                 time.sleep(sec)
-                Apwm.stop()
-                Bpwm.stop()
+                stopping()
                 break
     elif act=="c":
         print("cancel")
