@@ -43,12 +43,12 @@ def turn_left():                   #左回転
     GPIO.output(27,GPIO.HIGH)
     Bpwm.ChamgeDutyCycle(75)
 
-while():
+while(1):
     act=input("処理を入力>>>")
     if act=="f":
         print("forward")
         print("何秒前進しますか？")
-        while():
+        while(1):
             sec=input("秒数を入力>>>")
             if sec.isdecimal():
                 sec=float(sec)
@@ -61,7 +61,7 @@ while():
     elif act=="b":
         print("back")
         print("何秒後進しますか？")
-        while():
+        while(1):
             sec=input("秒数を入力>>>")
             if sec.isdecimal():
                 sec=float(sec)
@@ -74,7 +74,7 @@ while():
     elif act=="r":
         print("turn right")
         print("何秒右回転しますか？")
-        while():
+        while(1):
             sec=input("秒数を入力>>>")
             if sec.isdecimal():
                 sec=float(sec)
@@ -87,7 +87,7 @@ while():
     elif act=="l":
         print("turn left")
         print("何秒左回転しますか？")
-        while():
+        while(1):
             sec=input("秒数を入力>>>")
             if sec.isdecimal():
                 sec=float(sec)
