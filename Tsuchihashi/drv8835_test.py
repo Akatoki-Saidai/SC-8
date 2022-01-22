@@ -8,8 +8,8 @@ GPIO.setup(22, GPIO.OUT)           # GPIO22を出力で利用、BIN2(PWM)
 GPIO.setup(4, GPIO.OUT)            # GPIO4を出力で利用、AIN1(dir)
 GPIO.setup(27, GPIO.OUT)           # GPIO27を出力で利用、BIN1(dir)
 
-Apwm = GPIO.pwm(17,100)            #GPIO17を100HzのPWM出力とする
-Bpwm = GPIO.pwm(22,100)            #GPIO22を100HzのPWM出力とする
+Apwm = GPIO.PWM(17,100)            #GPIO17を100HzのPWM出力とする
+Bpwm = GPIO.PWM(22,100)            #GPIO22を100HzのPWM出力とする
 
 def forward():                     #前進
     Apwm.start(0)                  #右車輪
@@ -17,7 +17,7 @@ def forward():                     #前進
     Apwm.ChangeDutyCycle(75)
     Bpwm.start(0)                  #左車輪
     GPIO.output(27,GPIO.HIGH)
-    Bpwm.ChamgeDutyCycle(75)
+    Bpwm.ChangeDutyCycle(75)
 
 def back():                        #後進
     Apwm.start(0)                  #右車輪
@@ -25,7 +25,7 @@ def back():                        #後進
     Apwm.ChangeDutyCycle(75)
     Bpwm.start(0)                  #左車輪
     GPIO.output(27,GPIO.LOW)
-    Bpwm.ChamgeDutyCycle(75)
+    Bpwm.ChangeDutyCycle(75)
 
 def turn_right():                  #右回転
     Apwm.start(0)                  #右車輪
@@ -33,7 +33,7 @@ def turn_right():                  #右回転
     Apwm.ChangeDutyCycle(75)
     Bpwm.start(0)                  #左車輪
     GPIO.output(27,GPIO.HIGH)
-    Bpwm.ChamgeDutyCycle(0)
+    Bpwm.ChangeDutyCycle(0)
 
 def turn_left():                   #左回転
     Apwm.start(0)                  #右車輪
@@ -41,7 +41,7 @@ def turn_left():                   #左回転
     Apwm.ChangeDutyCycle(0)
     Bpwm.start(0)                  #左車輪
     GPIO.output(27,GPIO.HIGH)
-    Bpwm.ChamgeDutyCycle(75)
+    Bpwm.ChangeDutyCycle(75)
 
 def stopping():
     i = 0
@@ -51,7 +51,7 @@ def stopping():
         Apwm.ChangeDutyCycle(75-i)
         Bpwm.start(0)                  #左車輪
         GPIO.output(27,GPIO.HIGH)
-        Bpwm.ChamgeDutyCycle(75-i)
+        Bpwm.ChangeDutyCycle(75-i)
         time.sleep(0.5)
         i = i - 5
     else:
