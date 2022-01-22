@@ -1,5 +1,4 @@
 import RPi.GPIO as GPIO
-import config
 import time
 
 GPIO.setmode(GPIO.BCM)             # GPIOの番号で指定
