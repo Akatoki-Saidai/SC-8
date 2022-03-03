@@ -5,8 +5,8 @@ import math
 pi=math.pi
 
 def CalculateDis():
-    Goal_lat=a #ゴール地点の経度（決まったら入れる）
-    Goal_lng=b #ゴール地点の緯度（決まったら入れる）
+    Goal_lat=a #ゴール地点の緯度（決まったら入れる）
+    Goal_lng=b #ゴール地点の経度（決まったら入れる）
 
     gps_lat=data_stream.TPV['lat']
     gps_lng=data_stream.TPV['lon']
