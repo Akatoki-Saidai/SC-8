@@ -18,12 +18,11 @@ if __name__ == '__main__':
 	try:
 		while True:
 			accel = mpu9250.readAccel()
-            print('accel:' + str(accel))
-            gyro = mpu9250.readGyro()
-            print('gyro:' + str(gyro))
-            magnet = mpu9250.readMagnet()
-            print('magnet:' + str(magnet))
-			print(str(t)+":"+str(p)":"+str(h)+"\n")
+			print('accel:' + str(accel))
+			gyro = mpu9250.readGyro()
+			print('gyro:' + str(gyro))
+			magnet = mpu9250.readMagnet()
+			print('magnet:' + str(magnet))
 			write_csv(accel,gyro,magnet)
 			time.sleep(1)
 	except KeyboardInterrupt:
